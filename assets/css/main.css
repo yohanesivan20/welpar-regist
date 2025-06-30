@@ -2511,6 +2511,14 @@ input, select, textarea {
 				#main section.cover header {
 					padding: 0 1em;
 				}
+			
+			#top footer {
+				position: absolute;
+				bottom: 90px; /* <-- ini jarak dari bawah, ubah sesuai keinginan */
+				left: 0;
+				width: 100%;
+				text-align: center;
+			}
 
 		/* Footer */
 
