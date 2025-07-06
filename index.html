@@ -13,6 +13,22 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
+		<!-- Header -->
+			<header id="header-nav">
+				<div class="container">
+					<div class="menu-toggle" id="menu-toggle">☰</div>
+					<div class="close-toggle" id="close-toggle">x</div>
+					<nav id="nav-menu">
+						<ul>
+							<li><a href="#top" class="scrolly">Home</a></li>
+							<li><a href="#detail" class="scrolly">What's on B2B</a></li>
+							<li><a href="#about" class="scrolly">About Us</a></li>
+							<li><a href="#register" class="scrolly">Register</a></li>
+						</ul>
+					</nav>
+					<div id="overlay"></div>
+				</div>
+			</header>
 		<!-- Main -->
 			<div id="main">
 
@@ -24,13 +40,13 @@
 						</video>
 						<div class="container">
 							<footer>
-								<a href="#portfolio" class="button scrolly">Click to Join!</a>
+								<a href="#register" class="button scrolly">Click to Join!</a>
 							</footer>
 						</div>
 					</section>
 
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
+				<!-- Detail -->
+					<section id="detail" class="two">
 						<div class="container">
 
 							<header>
@@ -84,7 +100,7 @@
 						</div>
 					</section>
 
-				<!-- About Me -->
+				<!-- About Us -->
 					<section id="about" class="three">
 						<div class="container">
 
@@ -104,7 +120,7 @@
 					</section>
 
 				<!-- Contact -->
-					<section id="contact" class="four">
+					<section id="register" class="four">
 						<div class="container">
 
 							<header>
@@ -113,15 +129,15 @@
 
 							<p>Agar kami dapat mengenalmu, yuk silahkan isi terlebih dahulu formulir dibawah ini!</p>
 
-							<form method="post" action="#">
+							<form method="post" id="registrationForm">
 								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Masukin Nama Lengkap" required
+									<div class="col-6 col-12-mobile"><input type="text" id="name" placeholder="Masukan Nama Lengkap" required
 										oninvalid="this.setCustomValidity('Silahkan masukan nama lengkap anda!')"
 										oninput="this.setCustomValidity('')"/></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Masukin Alamat Email" required 
+									<div class="col-6 col-12-mobile"><input type="text" id="email" placeholder="Masukan Alamat Email" required 
 										oninvalid="this.setCustomValidity('Silahkan masukan alamat email anda!')"
 										oninput="this.setCustomValidity('')"/></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="phone" placeholder="Masukin No Telepon" required
+									<div class="col-6 col-12-mobile"><input type="text" id="phone" placeholder="Masukan No Telepon" required
 										oninvalid="this.setCustomValidity('Silahkan masukan nomor telepon anda!')"
 										oninput="this.setCustomValidity('')"/></div>
 									<div class="col-6 col-12-mobile">
@@ -189,6 +205,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script src="assets/js/register.js"></script>
 	</body>
 </html>

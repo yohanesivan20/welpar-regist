@@ -27,72 +27,34 @@
 		});
 
 	// Nav.
-		var $nav_a = $nav.find('a');
+		document.getElementById('menu-toggle').addEventListener('click', function () {
+			document.getElementById('nav-menu').classList.toggle('active');
+		});		
 
-		$nav_a
-			.addClass('scrolly')
-			.on('click', function(e) {
+		const menuToggle = document.getElementById('menu-toggle');
+		const navMenu = document.getElementById('nav-menu');
+		const overlay = document.getElementById('overlay');
 
-				var $this = $(this);
+		// Saat klik hamburger ☰
+		menuToggle.addEventListener('click', () => {
+			menuToggle.classList.add('active');        // animasi ☰ ➝ ✖
+			navMenu.classList.add('active');           // munculkan nav
+			overlay.classList.add('active');           // munculkan overlay
+			menuToggle.classList.add('hidden');        // sembunyikan tombol
+		});
 
-				// External link? Bail.
-					if ($this.attr('href').charAt(0) != '#')
-						return;
+		overlay.addEventListener('click', closeMenu);
+			// Optional: klik link di nav juga menutup menu
+			document.querySelectorAll('#nav-menu a').forEach(link => {
+			link.addEventListener('click', closeMenu);
+		});
 
-				// Prevent default.
-					e.preventDefault();
-
-				// Deactivate all links.
-					$nav_a.removeClass('active');
-
-				// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-					$this
-						.addClass('active')
-						.addClass('active-locked');
-
-			})
-			.each(function() {
-
-				var	$this = $(this),
-					id = $this.attr('href'),
-					$section = $(id);
-
-				// No section for this link? Bail.
-					if ($section.length < 1)
-						return;
-
-				// Scrollex.
-					$section.scrollex({
-						mode: 'middle',
-						top: '-10vh',
-						bottom: '-10vh',
-						initialize: function() {
-
-							// Deactivate section.
-								$section.addClass('inactive');
-
-						},
-						enter: function() {
-
-							// Activate section.
-								$section.removeClass('inactive');
-
-							// No locked links? Deactivate all links and activate this section's one.
-								if ($nav_a.filter('.active-locked').length == 0) {
-
-									$nav_a.removeClass('active');
-									$this.addClass('active');
-
-								}
-
-							// Otherwise, if this section's link is the one that's locked, unlock it.
-								else if ($this.hasClass('active-locked'))
-									$this.removeClass('active-locked');
-
-						}
-					});
-
-			});
+		function closeMenu() {
+			navMenu.classList.remove('active');
+			overlay.classList.remove('active');
+			menuToggle.classList.remove('active');     // kembali ke ☰
+			menuToggle.classList.remove('hidden');     // tampilkan tombol
+		}
 
 	// Scrolly.
 		$('.scrolly').scrolly();

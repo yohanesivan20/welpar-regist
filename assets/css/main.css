@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 @font-face {
 	font-family: 'Peace Sans';
-	src: url('assets/webfonts/peace_sans/Peace Sans Webfont.ttf') format('truetype');
+	src: url('webfonts/peace_sans/PeaceSans.ttf') format('truetype');
 }
 
 /*
@@ -193,7 +193,7 @@ input, select, textarea {
 	a {
 		text-decoration: none;
 		color: inherit;
-		border-bottom: dotted 1px rgba(128, 128, 128, 0.5);
+		/* border-bottom: dotted 1px rgba(128, 128, 128, 0.5); */
 		-moz-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-webkit-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-ms-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
@@ -2062,6 +2062,130 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
+/* Header */
+	#header-nav {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 10000;
+		font-family: 'Peace Sans', sans-serif;
+	}
+
+	.container-nav {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 1em 2em;
+	}
+
+	/* Tombol ☰ */
+	.menu-toggle {
+		position: fixed;        /* ⬅️ supaya bebas dari layout parent */
+		top: 20px;              /* ⬅️ jarak dari atas */
+		right: 20px;            /* ⬅️ pojok kanan */
+		font-size: 1.8em;
+		color: #ffffff;
+		background-color: rgba(255, 255, 255, 0.3);
+		padding: 6px 8px;
+		border-radius: 6px;
+		cursor: pointer;
+		z-index: 10001;
+		transition: background 0.3s ease;
+	}
+
+	.menu-toggle.hidden {
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+	}
+
+	.menu-toggle:hover {
+		color: #1E3A8A;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	/* Tombol ✖ di luar sidebar */
+	.close-toggle {
+		display: none;
+		font-size: 1.8em;
+		color: #1E3A8A;
+		cursor: pointer;
+		position: fixed;
+		top: 20px;
+		right: 265px; /* di sebelah kiri sidebar (sidebar 250px) */
+		z-index: 10002;
+	}
+
+	/* Tampilkan tombol close saat aktif */
+	.close-toggle.active {
+		display: block;
+	}
+
+	/* Sidebar nav (selalu hidden default) */
+	#nav-menu {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 250px;
+		height: 100%;
+		background-color: rgba(0, 0, 123, 0.95);
+		padding-top: 80px;
+		transition: right 0.3s ease-in-out;
+		z-index: 9999;
+	}
+
+	#nav-menu.active {
+		right: 0;
+	}
+
+	#nav-menu.active ~ .menu-toggle {
+		display: none;
+	}
+
+	/* Menu Items */
+	#nav-menu ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding-left: 20px;
+	}
+
+	#nav-menu ul li {
+		margin: 15px 0;
+	}
+
+	#nav-menu ul li a {
+		text-decoration: none;
+		color: #fff;
+		font-weight: 500;
+		font-size: 1.2em;
+		transition: color 0.3s;
+	}
+
+	#nav-menu ul li a:hover {
+		color: #00ffd0;
+	}
+
+	#overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.7); /* gelap semi-transparan */
+		z-index: 9998; /* di bawah sidebar (9999), tapi di atas konten */
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease;
+	}
+
+	/* Saat navbar aktif, munculkan overlay */
+	#nav-menu.active ~ #overlay {
+		opacity: 1;
+		visibility: visible;
+	}
+
 /* Footer */
 
 	#footer {
@@ -2478,6 +2602,9 @@ input, select, textarea {
 				width: 2em;
 				font-size: 1.25em;
 			}
+		
+		/* Header */
+		
 
 		/* Main */
 
