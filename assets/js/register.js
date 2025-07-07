@@ -1,25 +1,43 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbyNiamkRXiu_afPbMpf2TwomD_gmz06SA7oWizjqH1_rYiY2jHneO84S8evbqXozQAmbg/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwxfuW3mxaw5ctAVSJrKpJsPJDZimh69I1kuHP9Ddo8nK_34CvKY-kLUVJTM-SgKBykxw/exec";
 
 $(document).ready(function() {
-    //Submit Button
-    document.getElementById("registrationForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        
-        const formData = {
-            name: $("#name").val(),
-            email: $("#email").val(),
-            phone: $("#phone").val(),
-            age: $('#age').val(),
-            domicile: $('#domicile').val(),
-            member: $('#member').val(),
-            message: $('#message').val()
-        };
+    //Submit Button        
+        document.getElementById("registrationForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = {
+                name: $("#name").val(),
+                email: $("#email").val(),
+                phone: $("#phone").val(),
+                age: $('#age').val(),
+                domicile: $('#domicile').val(),
+                member: $('#member').val(),
+                media: $('#media').val(),
+                camping: $('#camping').val(),
+                message: $('#message').val()
+            };
 
-        $.post(scriptURL, formData, function(response) {
-            alert("Registrasi berhasil!");
-            $("#registrationForm")[0].reset();
-        }).fail(function() {
-            alert("Terjadi kesalahan, coba lagi.");
+            const submitBtn = $("#form-submit");
+
+            submitBtn.prop("disabled", true).val("Loading...");
+
+            $.post(scriptURL, formData, function(response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: 'Pendaftaran kamu telah berhasil!'
+                }).then(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+
+                $("#registrationForm")[0].reset();
+            }).fail(function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Ada masalah saat melakukan pendaftaran!'
+                });
+            }).always(function() {
+                submitBtn.prop("disabled", false).val("KIRIM PENDAFTARAN");
+            });
         });
-    });
 });

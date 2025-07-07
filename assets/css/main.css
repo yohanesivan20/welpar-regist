@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 @font-face {
 	font-family: 'Peace Sans';
-	src: url('webfonts/peace_sans/PeaceSans.ttf') format('truetype');
+	src: url('fonts/peace_sans/PeaceSans.ttf') format('truetype');
 }
 
 /*
@@ -2084,7 +2084,7 @@ input, select, textarea {
 		top: 20px;              /* ⬅️ jarak dari atas */
 		right: 20px;            /* ⬅️ pojok kanan */
 		font-size: 1.8em;
-		color: #ffffff;
+		color: #1E3A8A;
 		background-color: rgba(255, 255, 255, 0.3);
 		padding: 6px 8px;
 		border-radius: 6px;
@@ -2129,7 +2129,7 @@ input, select, textarea {
 		width: 250px;
 		height: 100%;
 		background-color: rgba(0, 0, 123, 0.95);
-		padding-top: 80px;
+		padding-top: 60px;
 		transition: right 0.3s ease-in-out;
 		z-index: 9999;
 	}
@@ -2184,6 +2184,31 @@ input, select, textarea {
 	#nav-menu.active ~ #overlay {
 		opacity: 1;
 		visibility: visible;
+	}
+
+	.nav-footer {
+		text-align: left;
+		padding-left: 20px;
+		padding-top: 20px;
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+		color: #fff;
+	}
+
+	.nav-footer p {
+		padding-left: 5px;
+		margin-bottom: 5px;
+		font-size: 16px;
+	}
+
+	.social-icons a {
+		color: #fff;
+		margin: 0 10px;
+		font-size: 24px;
+		transition: color 0.3s ease;
+	}
+
+	.social-icons a:hover {
+		color: #f2a365; /* Ganti sesuai warna tema kamu */
 	}
 
 /* Footer */
@@ -2281,8 +2306,16 @@ input, select, textarea {
 			}
 
 			#main > section.three {
-				background-color: #ecf1f1;
+				background-color: #0066a1;
 			}
+				
+				#main > section.three h2 {
+					color: #00c4cc;
+				}
+					
+					#main > section.three p {
+						color: white;
+					}
 
 			#main > section.four {
 				background-color: #e8edec;
