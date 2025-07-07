@@ -26,10 +26,9 @@ $(document).ready(function() {
                     title: 'Berhasil!',
                     text: 'Pendaftaran kamu telah berhasil!'
                 }).then(() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    window.scrollTo(0, 0);
+                    location.reload(); 
                 });
-
-                $("#registrationForm")[0].reset();
             }).fail(function() {
                 Swal.fire({
                     icon: 'error',
