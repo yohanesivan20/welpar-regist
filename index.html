@@ -8,6 +8,8 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/all.min.css">
 
+		<!-- Font Peace Sans -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dharmatype/Peace-Sans@latest/PeaceSans.ttf" type="font/ttf">
 	</head>
 	<body class="is-preload">
 		<!-- Header -->
@@ -19,21 +21,30 @@
 						<ul>
 							<li><a href="#top" class="scrolly">Home</a></li>
 							<li><a href="#detail" class="scrolly">What's on B2B</a></li>
-							<li><a href="#about" class="scrolly">About Us</a></li>
+							<li><a href="#about" class="scrolly">About B2B</a></li>
 							<li><a href="#register" class="scrolly">Register</a></li>
 						</ul>
 						<div class="nav-footer">
 							<p>Connect with us:</p>
 							<div class="social-icons">
-								<a href="https://www.instagram.com/ktmmmjkt" target="_blank">
-									<i class="fab fa-instagram"></i>
-								</a>
-								<a href="https://www.holytrinitycarmel.com" target="_blank">
-									<i class="fab fa-chrome"></i>
-								</a>
-								<a href="https://www.instagram.com/b2bktmjkt" target="_blank">
-									<i class="fab fa-instagram"></i>
-								</a>
+								<div class="social-item">
+									<a href="https://www.instagram.com/ktmmmjkt" target="_blank">
+										<i class="fab fa-instagram"></i>
+										<span class="username">@ktmmmjkt</span>
+									</a>
+								</div>
+								<div class="social-item">
+									<a href="https://www.instagram.com/b2bktmjkt" target="_blank">
+										<i class="fab fa-instagram"></i>
+										<span class="username">@b2bktmjkt</span>
+									</a>
+								</div>
+								<div class="social-item">
+									<a href="https://www.holytrinitycarmel.com" target="_blank">
+										<i class="fab fa-chrome"></i>
+										<span class="username">Website KTM</span>
+									</a>
+								</div>
 							</div>
 						</div>
 					</nav>
@@ -73,9 +84,9 @@
 									</article>
 									<article class="item">
 										<a class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-										<header>
+										<!-- <header>
 											<h3>Praise and Worship</h3>
-										</header>
+										</header> -->
 									</article>
 								</div>
 								<div class="col-4 col-12-mobile">
@@ -91,16 +102,10 @@
 								</div>
 								<div class="col-4 col-12-mobile">
 									<article class="item">
-										<a class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-										<!-- <header>
-											<h3>Stand Up Comedy</h3>
-										</header> -->
+										<a class="image fit"><img src="images/pic07.jpg" alt="" /></a>
 									</article>
 									<article class="item">
-										<a class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-										<header>
-											<h3>Stand Up Comedy</h3>
-										</header>
+										<a class="image fit"><img src="images/pic06.jpg" alt="" /></a>
 									</article>
 								</div>
 							</div>
@@ -115,13 +120,14 @@
 							<header>
 								<h2>Apa itu B2B KTM Muda Mudi Jakarta?</h2>
 							</header>
-<!-- 
-							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a> -->
+							
+							<!-- <a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a> -->
 
 							<p>Event eksternal yang diadakan oleh Komunitas Tritunggal Mahakudus Distrik Muda Mudi Jakarta sejak tahun 2012.
 								Event ini diadakan karena kami telah merasakan sendiri berkat dan cinta kasih dari Tuhan, sehingga kami pun ingin
-								membagikan sukacita kepada orang lain khususnya Orang Muda Katolik melalui pelayanan kami. Blessed To Bless tahun 2025 di kemas
-								dalam rupa Praise & Worship, Talkshow, dan Seminar Katolik sesuai dengan Spiritualitas KTM.
+								membagikan sukacita kepada orang lain khususnya Orang Muda Katolik melalui pelayanan kami. Blessed To Bless tahun 2025 ini, 
+								KTM MM Jakarta berkolaborasi dengan Pastoran Atma Jaya mengemas kegiatan dalam rupa <em>Praise & Worship, Talkshow, dan 
+								Stand Up Comedy</em> Katolik sesuai dengan Spiritualitas KTM.
 							</p>
 
 						</div>
@@ -161,7 +167,7 @@
 										</select>
 									</div>
 									<div class="col-6 col-12-mobile">
-										<select name="domicile" id="domicile" required class="wizard-required"
+										<select name="domicile" id="domicile" required
 										oninvalid="this.setCustomValidity('Silahkan pilih domisili anda!')"
 										oninput="this.setCustomValidity('')">
 											<option value="" disabled selected>-- Pilih Domisili Anda --</option>
@@ -172,7 +178,12 @@
 											<option value="Jakarta Selatan">Jakarta Selatan</option>
 											<option value="Tangerang">Tangerang</option>
 											<option value="Bekasi">Bekasi</option>
+											<option value="other">Kota Lain....</option>
 										</select>
+										<!-- Input nama kota lainnya -->
+										<div id="other-domicile-container">
+											<input type="text" id="other-domicile" placeholder="Masukkan Nama Kota Anda" class="wizard-required" />
+										</div>
 									</div>
 									<div class="col-6 col-12-mobile">
 										<select name="member" id="member" required class="wizard-required" 
@@ -188,10 +199,11 @@
 										oninvalid="this.setCustomValidity('Silahkan pilih sumber informasi!')"
 										oninput="this.setCustomValidity('')">
 											<option value="" disabled selected>-- Mengetahui Acara B2B 2025 Dari ? --</option>
+											<option value="Teman">Teman</option>
 											<option value="Sosial Media">Sosial Media</option>
 											<option value="Keluarga/Kerabat">Keluarga/Kerabat</option>
 											<option value="Camping Rohani">Camping Rohani</option>
-											<option value="Sel KTM">Sel KTM</option>
+											<option value="Sel KTM">Komunitas Rohani</option>
 										</select>
 									</div>
 									<div class="col-6 col-12-mobile">
@@ -221,12 +233,51 @@
 
 		<!-- Footer -->
 			<div id="footer">
-
-				<!-- Copyright -->
+				<!-- Navigasi -->
+				<div class="footer-container">
+					<!-- Kontak -->
+					<div class="footer-section">
+						<h3>Kontak</h3>
+						<ul class="contact-list">
+							<li>
+								<i class="fab fa-whatsapp"></i>
+								<strong>Kak Berlyn :</strong> 
+								<a href="https://wa.me/081297059078">
+									081297059078
+								</a></li>
+							<li>
+								<i class="fab fa-whatsapp"></i>
+								<strong>Kak Gita :</strong>
+								<a href="https://wa.me/081225380545">
+									081225380545
+								</a></li>
+							<li>
+								<i class="fab fa-instagram"></i>
+								<strong>Instagram :</strong>
+								<a href="https://instagram.com/ktmmmjkt" target="_blank">
+									@ktmmmjkt
+								</a></li>
+						</ul>
+					</div>
+					<!-- Penyelenggara -->
+					<div class="footer-section">
+						<h3>Penyelenggara</h3>
+						<div class="logo-grid">
+							<img src="images/logo/logo_paj.jpg" alt="Logo 1">
+							<img src="images/logo/logo_atma_jaya.png" alt="Logo 2">
+							<img src="images/logo/logo_ktm.png" alt="Logo 3">
+							<img src="images/logo/logo_b2b.png" alt="Logo 4">
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<!-- Copyright -->
 					<ul class="copyright">
-						<li>&copy; Blessed To Bless 4.0 : Way Finder</li><li><a href="https://www.instagram.com/ktmmmjkt/">KTM Muda Mudi Jakarta</a></li>
+						<li>Blessed To Bless 4.0 : Way Finder</li>
+						<li><a href="https://www.instagram.com/ktmmmjkt/">KTM Muda Mudi Jakarta</a></li>
+						<li><a href="https://html5up.net/">&copy; html5up.net</a></li>
 					</ul>
-
+				</div>
 			</div>
 
 		<!-- Scripts -->
