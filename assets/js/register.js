@@ -23,13 +23,30 @@ $(document).ready(function() {
                 });
                 return; // 🚫 Stop submit jika belum isi kota
             }
-
-            const selectedDomicile = $('#domicile').val() === 'other' ? $('#other-domicile').val() : $('#domicile').val();
             
+            const selectedDomicile = $('#domicile').val() === 'other' ? $('#other-domicile').val() : $('#domicile').val();
+
+
+            // Bersihkan dan format nomor telepon
+            const rawPhone = $("#phone").val().trim();
+            const cleanPhone = rawPhone.replace(/[^0-9]/g, ''); // Hanya angka
+            const normalizedPhone = "'" + cleanPhone; // Tambahkan kutip depan agar Excel tidak ubah format
+
+            // Validasi panjang nomor
+            if (cleanPhone.length < 10 || cleanPhone.length > 13) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Nomor Tidak Valid!',
+                    text: 'Silakan masukkan nomor telepon yang benar (10–13 digit angka).'
+                });
+                return;
+            }
+
             const formData = {
                 name: $("#name").val(),
                 email: $("#email").val(),
-                phone: "'" + $("#phone").val(),
+                // phone: "'" + $("#phone").val(),
+                phone: normalizedPhone,
                 age: $('#age').val(),
                 // domicile: $('#domicile').val(),
                 domicile: selectedDomicile,

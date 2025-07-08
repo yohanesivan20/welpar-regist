@@ -2254,7 +2254,7 @@ input, select, textarea {
 		text-align: left;
 		flex: 1 1 300px;
 		min-width: 250px;
-		max-width: 400px;
+		max-width: 480px;
 		padding: 10px;
 	}
 
@@ -2295,21 +2295,31 @@ input, select, textarea {
 
 	/* Grid logo */
 	.logo-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-		gap: 15px;
-		justify-items: center;
+		/* display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		justify-items: center; */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap; /* agar tetap responsif jika sempit */
+		gap: 1.5rem;
+		margin-top: 1rem;
 	}
 
 	.logo-grid img {
 		width: 100%;
-		max-width: 140px;
+		max-width: 90px;
 		height: auto;
 		background: #fff;
 		padding: 10px;
 		border-radius: 10px;
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 		transition: transform 0.3s ease;
+	}
+
+	.logo-grid img:hover {
+		transform: scale(1.05);
 	}
 
 		#footer .copyright {
@@ -2415,6 +2425,10 @@ input, select, textarea {
 					display: none; 
 					margin-top: 10px;
 				}
+
+					.form-submit {
+						margin-top: 10px;
+					}
 
 /* Wide */
 
