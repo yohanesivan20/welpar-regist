@@ -44,7 +44,7 @@ $(document).ready(function() {
 
             const formData = {
                 name: $("#name").val(),
-                email: $("#email").val(),
+                email: "-",
                 // phone: "'" + $("#phone").val(),
                 phone: normalizedPhone,
                 age: $('#age').val(),
