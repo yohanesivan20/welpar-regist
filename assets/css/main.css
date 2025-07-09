@@ -2,8 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 @font-face {
 	font-family: 'Peace Sans';
-	/* src: url('fonts/peace_sans/PeaceSans.ttf') format('truetype'); */
-	src: url('https://cdn.jsdelivr.net/gh/dharmatype/Peace-Sans@latest/PeaceSans.ttf') format('truetype');
+	src: url('fonts/peace_sans/PeaceSans.ttf') format('truetype');
     font-weight: normal;
 	font-style: normal;
 }
