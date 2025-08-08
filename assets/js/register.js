@@ -53,7 +53,7 @@ $(document).ready(function() {
                 member: $('#member').val(),
                 media: $('#media').val(),
                 camping: $('#camping').val(),
-                message: $('#message').val()
+                message: "Terdaftar"
             };
 
             const submitBtn = $("#form-submit");
